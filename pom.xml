@@ -13,6 +13,8 @@
 	<properties>
 		<jboss.fuse.version>6.2.1.redhat-069</jboss.fuse.version>
 		<fabric8.plugin.version>1.2.0.redhat-133</fabric8.plugin.version>
+		<maven.compiler.source>1.7</maven.compiler.source>
+		<maven.compiler.target>1.7</maven.compiler.target>
 	</properties>
 
 	<dependencyManagement>
@@ -20,14 +22,42 @@
 			<dependency>
 				<groupId>org.jboss.fuse.bom</groupId>
 				<artifactId>jboss-fuse-parent</artifactId>
+				<version>${jboss.fuse.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
-				<version>${jboss.fuse.version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
 
 	<dependencies>
+
+		<!-- Camel core -->
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-core</artifactId>
+		</dependency>
+		<!-- Camel CXF -->
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-cxf</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+		</dependency>
+
+		<!-- cxf using slf4j -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+		</dependency>
+
+		<!-- For testing -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
