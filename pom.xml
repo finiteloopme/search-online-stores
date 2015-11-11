@@ -5,16 +5,17 @@
 
 	<groupId>me.finiteloop.demo</groupId>
 	<artifactId>search-online-stores</artifactId>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<version>0.1-SNAPSHOT</version>
 
 	<name>Search online store</name>
 
 	<properties>
-		<jboss.fuse.version>6.2.1.redhat-069</jboss.fuse.version>
-		<fabric8.plugin.version>1.2.0.redhat-133</fabric8.plugin.version>
+		<jboss.fuse.version>6.2.1.redhat-071</jboss.fuse.version>
+		<!-- <fabric8.plugin.version>1.2.0.redhat-133</fabric8.plugin.version> -->
 		<maven.compiler.source>1.7</maven.compiler.source>
 		<maven.compiler.target>1.7</maven.compiler.target>
+		<javax.cdi.version>1.2</javax.cdi.version>
 	</properties>
 
 	<dependencyManagement>
@@ -36,10 +37,22 @@
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-core</artifactId>
 		</dependency>
-		<!-- Camel CXF -->
+		<!-- Camel restlet -->
 		<dependency>
 			<groupId>org.apache.camel</groupId>
-			<artifactId>camel-cxf</artifactId>
+			<artifactId>camel-restlet</artifactId>
+		</dependency>
+		<!-- Camel http support -->
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-http4</artifactId>
+		</dependency>
+		
+		<!-- Camel test -->
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-test</artifactId>
+			<scope>test</scope>
 		</dependency>
 
 		<dependency>
