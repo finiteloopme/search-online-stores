@@ -27,7 +27,7 @@ public class SearchService
 			.to("direct:get-search-criteria");
 		
 		
-		from("direct:getsearch-criteria")
+		from("direct:get-search-criteria")
 			.log("Search criteria is: ${body}")
 			.setBody(constant(""))
 			.setHeader(Exchange.HTTP_RESPONSE_CODE, constant("200"));
