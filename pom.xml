@@ -47,7 +47,7 @@
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-http4</artifactId>
 		</dependency>
-		
+
 		<!-- Camel test -->
 		<dependency>
 			<groupId>org.apache.camel</groupId>
@@ -77,6 +77,19 @@
 			<!-- <version>3.8.1</version> -->
 			<scope>test</scope>
 		</dependency>
+
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-rs-client</artifactId>
+			<!-- <version>3.0.0-milestone1</version> -->
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-transports-http-hc</artifactId>
+			<scope>test</scope>
+		</dependency>
+
 	</dependencies>
 
 	<repositories>
