@@ -47,7 +47,7 @@ public class SearchServiceTest
 	public void testHTTPSearch(){
 		Client client = ClientBuilder.newBuilder().newClient();
 		WebTarget url = client.target("http://localhost:8182/search");
-		Invocation.Builder builder = url.path("/").request(MediaType.APPLICATION_JSON);
+		Invocation.Builder builder = url.path("/testing").request(MediaType.APPLICATION_JSON);
 		
 		Response response = builder.get();
 		Assert.assertEquals(Response.Status.OK.getStatusCode(), response.getStatus());
