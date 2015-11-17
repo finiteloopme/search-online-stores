@@ -52,8 +52,8 @@ public class SearchService
 			.recipientList(
 					simple("http4://api.img4me.com/?bcolor=B20000&fcolor=FFFFFF&font=comic&size=18&type=png&text=${body}")
 			)
-			// Convert the status code to String
 			.log("The image is: ${body}")
+			// Convert the status code to String
 			.setHeader(Exchange.HTTP_RESPONSE_CODE, constant(Response.Status.OK.getStatusCode() + ""));
 	}
 	

@@ -11,13 +11,6 @@
 	<camelContext id="rest-routes"
 		xmlns="http://camel.apache.org/schema/blueprint" trace="false">
 
-		<!-- <restConfiguration bindingMode="auto" component="restlet" port="8182"/> -->
-		<cm:property-placeholder persistent-id="stuff" update-strategy="reload">
-    <cm:default-properties>
-      <cm:property name="destination" value="to-be-replaced" />
-    </cm:default-properties>
-  </cm:property-placeholder>
-  
 		<packageScan>
 			<!-- Package scan finds the camel routes -->
 			<package>me.finiteloop.stores.online.search</package>
