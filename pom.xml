@@ -5,7 +5,7 @@
 
 	<groupId>me.finiteloop.demo</groupId>
 	<artifactId>search-online-stores</artifactId>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
 	<version>0.1-SNAPSHOT</version>
 
 	<name>Search online store</name>
@@ -16,6 +16,7 @@
 		<maven.compiler.source>1.7</maven.compiler.source>
 		<maven.compiler.target>1.7</maven.compiler.target>
 		<javax.cdi.version>1.2</javax.cdi.version>
+		<!-- <version.maven.war.plugin>2.2</version.maven.war.plugin> -->
 	</properties>
 
 	<dependencyManagement>
@@ -124,11 +125,20 @@
 
 	<build>
 		<finalName>search-online-stores</finalName>
-
-		<plugins>
-			<!-- <plugin> <groupId>io.fabric8</groupId> <artifactId>fabric8-maven-plugin</artifactId> 
-				<version>1.2.0.redhat-133</version> <configuration> <profile>testprofile</profile> 
-				<version>1.2</version> </configuration> </plugin> -->
-		</plugins>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-war-plugin</artifactId>
+					<!-- <version>${version.maven.war.plugin}</version> -->
+					<configuration>
+						<failOnMissingWebXml>false</failOnMissingWebXml>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
 	</build>
+	
+	<profiles>
+	</profiles>
 </project>
