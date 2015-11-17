@@ -17,7 +17,7 @@ import org.apache.camel.model.rest.RestBindingMode;
  * @author klimaye
  *
  */
-//@Path("search")
+@Path("search")
 public class SearchService
 	extends RouteBuilder{
 	
@@ -26,8 +26,9 @@ public class SearchService
 		
 		// Properties resolution allows URI to be substituted at runtime.
 		// Use of colon ':' allows specification of a default value.
-		restConfiguration().component("restlet").host("{{uri.hostname.consumer:localhost}}")
-			.port("{{uri.port.consumer:8182}}").bindingMode(RestBindingMode.auto);
+		
+		restConfiguration().component("restlet").host("{{sys:jboss.bind.address:localhost}}")
+			.port("{{jboss.web.http.port:8182}}").bindingMode(RestBindingMode.auto);
 		
 		rest("/search")
 			.consumes("application/json")
