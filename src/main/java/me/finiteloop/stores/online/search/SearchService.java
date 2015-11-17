@@ -17,7 +17,7 @@ import org.apache.camel.model.rest.RestBindingMode;
  * @author klimaye
  *
  */
-@Path("search")
+//@Path("search")
 public class SearchService
 	extends RouteBuilder{
 	
@@ -29,7 +29,7 @@ public class SearchService
 		restConfiguration().component("restlet").host("{{uri.hostname.consumer:localhost}}")
 			.port("{{uri.port.consumer:8182}}").bindingMode(RestBindingMode.auto);
 		
-		rest("/")
+		rest("/search")
 			.consumes("application/json")
 			.produces("application/json")
 		.get("/{search-criteria}")
@@ -37,7 +37,6 @@ public class SearchService
 				
 		from("direct:get-search-criteria")
 			.process(new Processor() {
-				
 				@Override
 				public void process(Exchange exchange) throws Exception {
 					Message msgIn = exchange.getIn();
@@ -48,7 +47,12 @@ public class SearchService
 				}
 			})
 			.log("Search criteria is: ${body}")
-			.setBody(constant(""))
+			.setHeader("Accept", constant("text/plain"))
+			.recipientList(
+					simple("http4://api.img4me.com/?bcolor=B20000&fcolor=FFFFFF&font=comic&size=18&type=png&text=${body}")
+			)
+			// Convert the status code to String
+			.log("The image is: ${body}")
 			.setHeader(Exchange.HTTP_RESPONSE_CODE, constant(Response.Status.OK.getStatusCode() + ""));
 	}
 	
