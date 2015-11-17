@@ -1,12 +1,12 @@
 package me.finiteloop.stores.online.search;
 
-import javax.ws.rs.Path;
 import javax.ws.rs.core.Response;
 
 import org.apache.camel.Exchange;
 import org.apache.camel.Message;
 import org.apache.camel.Processor;
 import org.apache.camel.builder.RouteBuilder;
+import org.apache.camel.cdi.ContextName;
 import org.apache.camel.model.rest.RestBindingMode;
 
 /**
@@ -17,7 +17,8 @@ import org.apache.camel.model.rest.RestBindingMode;
  * @author klimaye
  *
  */
-@Path("search")
+// Configures all our routes
+@ContextName
 public class SearchService
 	extends RouteBuilder{
 	
